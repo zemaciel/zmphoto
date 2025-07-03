@@ -236,8 +236,27 @@
                 }
             }
         }
+        // Cookie functionality
+        function showCookieBanner() {
+            if (!localStorage.getItem('cookiesAccepted') && !localStorage.getItem('cookiesDeclined')) {
+                setTimeout(() => {
+                    document.getElementById('cookieBanner').classList.add('show');
+                }, 2000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookiesDeclined', 'true');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
 
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             new PhotoLightbox();
+            showCookieBanner(); // Move this inside DOMContentLoaded
         });

@@ -576,6 +576,9 @@ body {
     transform: translateY(0);
 }
 
+.navbar-toggler {
+    color: #adb5bd;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
